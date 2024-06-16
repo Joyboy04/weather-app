@@ -1,3 +1,5 @@
+ 
+
 function getWeather(city){
 	if (city) {
 	var xhr=new XMLHttpRequest();
@@ -48,22 +50,24 @@ function getForecast(city,days){
 	return false;
 }
 
-function formatForecast(data){
-	var table="";
+function formatForecast(data) {
+	var table = "";
 	for (var i = 0; i < data.list.length; i++) {
-		table += "<tr>";
-		table += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'/></td>";
-		table += "<td>" + data.list[i].weather[0].main + "</td>";
-		table += "<td>" + data.list[i].weather[0].description + "</td>";
-		table += "<td>" + data.list[i].temp.morn + "&deg;C</td>";
-		table += "<td>" + data.list[i].temp.night + "&deg;C</td>";
-		table += "<td>" + data.list[i].temp.min + "&deg;C</td>";
-		table += "<td>" + data.list[i].temp.max + "&deg;C</td>";
-		table += "<td>" + data.list[i].pressure + "hPa</td>";
-		table += "<td>" + data.list[i].humidity + "%</td>";
-		table += "<td>" + data.list[i].speed + "m/s</td>";
-		table += "</tr>";
+	  table += "<tr>";
+	  table += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'/></td>";
+	  table += "<td>" + data.city.name + ", " + data.city.country + "</td>"; // Display city name and country
+	  table += "<td>" + data.list[i].weather[0].main + "</td>";
+	  table += "<td>" + data.list[i].weather[0].description + "</td>";
+	  table += "<td>" + data.list[i].temp.morn + "&deg;C</td>";
+	  table += "<td>" + data.list[i].temp.night + "&deg;C</td>";
+	  table += "<td>" + data.list[i].temp.min + "&deg;C</td>";
+	  table += "<td>" + data.list[i].temp.max + "&deg;C</td>";
+	  table += "<td>" + data.list[i].pressure + "hPa</td>";
+	  table += "<td>" + data.list[i].humidity + "%</td>";
+	  table += "<td>" + data.list[i].speed + "m/s</td>";
+	  table += "</tr>";
 	}
 	return table;
-}
+  }
+  
 
